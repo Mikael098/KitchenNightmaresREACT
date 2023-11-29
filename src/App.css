@@ -1,0 +1,31 @@
+/* Classe pour le texte vert */
+.texte-vert {
+    color: green;
+}
+
+/* Classe pour le texte rouge */
+.texte-rouge {
+    color: red;
+}
+
+/* Ajoutez ces styles à votre fichier CSS existant ou créez une feuille de style séparée */
+
+/* Styles pour les écrans de grande taille */
+@media (min-width: 600px) {
+    .form-container {
+      max-width: 600px;
+    }
+  
+    .form-title {
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Styles pour les écrans de petite taille */
+  @media (max-width: 600px) {
+    .form-title {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+  }
+  
