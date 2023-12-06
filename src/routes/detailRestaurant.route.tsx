@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Typography, Card, CardContent, Box, Grid, ListItemText, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { BoutonConnexion } from '../components/boutonConnexion.component';
-import { Information } from '../components/information.component';
 import { BoutonAccueil } from '../components/boutonAccueil.component';
-import { IntlProvider, FormattedMessage, FormattedTime, FormattedDate, FormattedNumber } from 'react-intl';
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { LangContext } from '../contexts/lang.context';
 import fr from '../lang/fr.json';
 import en from '../lang/en.json';
@@ -30,7 +29,12 @@ export const DetailRestaurant = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/KitchenNightmares/id/${id}`);
+        //Locale
+        //const response = await fetch(`http://localhost:3000/api/KitchenNightmares/id/${id}`);
+
+        //En ligne
+        const response = await fetch(`https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/id/${id}`);
+
         const data = await response.json();
 
         setRestaurant(data.restaurant);

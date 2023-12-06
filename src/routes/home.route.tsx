@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Typography, Grid, Button, Card, CardContent, Box } from '@mui/material';
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BoutonConnexion } from '../components/boutonConnexion.component';
 import { Information } from '../components/information.component';
 import Filtre from '../../src/components/filtre.component';
-import { IntlProvider, FormattedMessage, FormattedTime, FormattedDate, FormattedNumber } from 'react-intl';
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { LangContext } from '../contexts/lang.context';
 import fr from '../lang/fr.json';
 import en from '../lang/en.json';
@@ -16,7 +16,13 @@ export const HomeRoute = () => {
   const { locale } = useContext(LangContext)!;
   const messages = locale === 'fr' ? fr : en;
 
-  const [urlApi, setUrlApi] = useState<string>('http://localhost:3000/KitchenNightmares/tout');
+
+  //Locale
+  //const [urlApi, setUrlApi] = useState<string>('http://localhost:3000/api/KitchenNightmares/tout');
+
+  //En ligne
+  const [urlApi, setUrlApi] = useState<string>('https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/tout');
+
   const [selectedFiltre, setSelectedFiltre] = useState<string>('tout');
   const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
   const navigate = useNavigate();
@@ -24,15 +30,36 @@ export const HomeRoute = () => {
   const handleDropdownChange = (censureValue: string, noteGordonValue: string) => {
     setSelectedFiltre(censureValue);
     if (censureValue === 'tout') {
-      setUrlApi('http://localhost:3000/KitchenNightmares/tout');
-    } else if (censureValue === 'censurer') {
-      setUrlApi('http://localhost:3000/KitchenNightmares/censure/true');
-    } else {
-      setUrlApi('http://localhost:3000/KitchenNightmares/censure/false');
+
+      //Locale'
+      //setUrlApi('http://localhost:3000/api/KitchenNightmares/tout');
+
+      //En ligne
+      setUrlApi('https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/tout');
+    }
+
+    else if (censureValue === 'censurer') {
+      //Locale
+      //setUrlApi('http://localhost:3000/api/KitchenNightmares/censure/true');
+
+      //En ligne
+      setUrlApi('https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/censure/true');
+    }
+    
+    else {
+      //Locale
+      //setUrlApi('http://localhost:3000/api/KitchenNightmares/censure/false');
+
+      //En ligne
+      setUrlApi('https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/censure/false');
     }
 
     if (noteGordonValue && censureValue !== '') {
-        setUrlApi(`http://localhost:3000/KitchenNightmares/noteGordon/${noteGordonValue}`);
+      //Locale
+      //setUrlApi(`http://localhost:3000/api/KitchenNightmares/noteGordon/${noteGordonValue}`);
+
+      //En ligne
+      setUrlApi(`https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/notegordon/${noteGordonValue}`);
     }
   };
 
@@ -52,6 +79,9 @@ export const HomeRoute = () => {
     const fetchData = async () => {
       const response = await fetch(urlApi);
       const data = await response.json();
+
+      console.log(data); // Log the data to check what's being received
+
 
       setRestaurants(data.restaurants);
     };

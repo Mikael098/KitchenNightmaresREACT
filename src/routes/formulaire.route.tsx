@@ -6,7 +6,7 @@ import { getToken, auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { BoutonConnexion } from '../components/boutonConnexion.component';
 import { BoutonAccueil } from '../components/boutonAccueil.component';
-import { IntlProvider, FormattedMessage, FormattedTime, FormattedDate, FormattedNumber } from 'react-intl';
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { LangContext } from '../contexts/lang.context';
 import fr from '../lang/fr.json';
 import en from '../lang/en.json';
@@ -190,8 +190,19 @@ export const FormulaireRoute = () => {
 
     // Détermine l'url en fonction de l'ajout ou de la modification
     const url = modification
-      ? `http://localhost:3000/KitchenNightmares/update`
-      : 'http://localhost:3000/KitchenNightmares/add';
+
+      //Locale
+      //? `http://localhost:3000/api/KitchenNightmares/update`
+
+      //En ligne
+      ? `https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/update`
+
+      //Locale
+      //: 'http://localhost:3000/api/KitchenNightmares/add';
+
+      //En ligne
+      : 'https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/add';
+
     
       try {
         // Envoie les données au serveur selon si c'est un ajout ou une modification

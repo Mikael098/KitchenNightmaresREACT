@@ -11,8 +11,14 @@ export const Information = () => {
   const messages = locale === 'fr' ? fr : en;
 
   //Définie les url des apis de stats
-  const urlApiInsulte = 'http://localhost:3000/KitchenNightmares/insulteTotal';
-  const urlApiMoyenneGordon = 'http://localhost:3000/KitchenNightmares/moyenneGordon';
+
+  //Url locale
+  //const urlApiInsulte = 'http://localhost:3000/api/KitchenNightmares/insulteTotal';
+  //const urlApiMoyenneGordon = 'http://localhost:3000/api/KitchenNightmares/moyenneGordon';
+
+  //Url en ligne
+  const urlApiInsulte = 'http://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/insulteTotal';
+  const urlApiMoyenneGordon = 'http://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/moyenneGordon';
 
   //Variable d'environnement pour stocker les données 
   const [insultes, setInsultes] = useState<number>();

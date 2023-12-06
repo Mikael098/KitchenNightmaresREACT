@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Typography, Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { BoutonConnexion } from '../components/boutonConnexion.component';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getToken, auth } from '../firebase';
 import { BoutonAccueil } from '../components/boutonAccueil.component';
-import { IntlProvider, FormattedMessage, FormattedTime, FormattedDate, FormattedNumber } from 'react-intl';
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { LangContext } from '../contexts/lang.context';
 import fr from '../lang/fr.json';
 import en from '../lang/en.json';
@@ -24,8 +24,13 @@ export const Supression = () => {
   //Lors de la confirmation de supression, on supprimer et on est redirigé à la page d'accueil
   const handleSupprimerConfirmation = async () => {
 
+
     try {
-      await fetch(`http://localhost:3000/KitchenNightmares/delete/${restaurantId}`,{
+      //Locale
+      //await fetch(`http://localhost:3000/api/KitchenNightmares/delete/${restaurantId}`,{
+
+      //En ligne
+      await fetch(`https://cool-churros-aa4f8c.netlify.app/api/KitchenNightmares/delete/${restaurantId}`,{
         method: 'DELETE',
       });
       navigate(`/home`);

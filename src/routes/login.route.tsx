@@ -16,7 +16,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { IntlProvider, FormattedMessage, FormattedTime, FormattedDate, FormattedNumber } from 'react-intl';
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { LangContext } from '../contexts/lang.context';
 import fr from '../lang/fr.json';
 import en from '../lang/en.json';
