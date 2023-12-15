@@ -9,6 +9,7 @@ Exécuter les commandes suivantes
 Changer l'url de supression du fichier supression.route.tsx
 Changer les url présent dans le fichier home.route.tsx
 Changer les url présent dans le fichier formulaire.route.tsx
+Changer les url présent dans le fichier detailRestaurant.route.tsx
 Changer les url présent dans le fichier information.component.tsx
 
 
